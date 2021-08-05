@@ -4,15 +4,16 @@ import {
   fetchAudioURi,
   fetchTranlatedLanguage,
   setCurrentText,
-} from "../redux/translate.slice";
+} from "../redux/translate/translate.slice";
 import useGetTextFromStore from "./useGetTextFromStore";
 
-const useTextToSpeech = () => {
+const useTranslateText = () => {
   const dispatch = useDispatch();
   const [text] = useGetTextFromStore();
   const tranlatedLang = useSelector(
     (state) => state.language.tranlatedLang.code
   );
+
   const [value, setValue] = useState();
 
   const onChange = ({ target: { value } }) => {
@@ -23,10 +24,11 @@ const useTextToSpeech = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    dispatch(fetchAudioURi(value));
+    console.log({ value, tranlatedLang });
+    dispatch(fetchTranlatedLanguage({ text: value, lang: tranlatedLang }));
   };
 
   return [text, onChange, onSubmit];
 };
 
-export default useTextToSpeech;
+export default useTranslateText;

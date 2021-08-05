@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { COLOR_WHITE } from "../../../../constant/styles";
-import { CSS_CONTAINER_BORDER } from "../../../../style/shared";
+import { CSS_CONTAINER_BORDER_RADIUS } from "../../../../style/shared";
 import { TextNorm } from "../../../Text/Text";
 
 const ModeButton = ({ icon: Icon, label }) => {
@@ -17,7 +17,7 @@ const ModeButton = ({ icon: Icon, label }) => {
 export default ModeButton;
 
 const Holder = styled.div`
-  ${CSS_CONTAINER_BORDER};
+  ${CSS_CONTAINER_BORDER_RADIUS};
   padding: 0px 20px;
   background-color: var(--color-white);
   display: flex;

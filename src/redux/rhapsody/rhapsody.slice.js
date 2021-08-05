@@ -1,7 +1,8 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { handleTranslateRhapsody } from "./rhapsody.helper";
 
 const initialState = {
-  defaultContent: {
+  content: {
     title: "THE KINGDOM IN YOU",
     bibleVerse:
       "“Now after that John was put in prison, Jesus came into Galilee, preaching the gospel of the kingdom of God (Mark 1:14).“",
@@ -10,17 +11,36 @@ const initialState = {
     prayer:
       "Dear Father, I thank you for your Kingdom that’s in my heart; your glory and righteousness that are in me and revealed through me. Your Kingdom reigns, and it’s established in the earth, and in the hearts of men as the Gospel is proclaimed around the world today, in Jesus’ Name. Amen.",
     date: "Rhapsody Of Realities Thursday 1st",
+    prayerConclusionLabel: "Prayer / Conclusion",
   },
-  tranlatedContent: { title: "", bibleVerse: "", message: "" },
   translated: false,
+  error: "",
 };
 
-const rhapso = createSlice({
-  name: "rhaspho",
+export const fetchTranslatedRhaspo = createAsyncThunk(
+  "rhapsody/getContent",
+  async (data) => {
+    console.log(data);
+    console.log("another");
+    return await handleTranslateRhapsody(data);
+  }
+);
+
+const rhapsody = createSlice({
+  name: "rhapsody",
   initialState,
-  reducers: () => {
+  reducers: {
     //   getDefaultContent()
+  },
+  extraReducers: (builder) => {
+    builder.addCase(fetchTranslatedRhaspo.fulfilled, (state, action) => {
+      state.content = action.payload;
+    });
+    builder.addCase(fetchTranslatedRhaspo.rejected, (state, action) => {
+      console.log(action.payload);
+      state.error = action.payload;
+    });
   },
 });
 
-export default rhapso.reducer;
+export default rhapsody.reducer;

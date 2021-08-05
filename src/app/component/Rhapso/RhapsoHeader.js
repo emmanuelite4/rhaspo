@@ -3,6 +3,7 @@ import { ArrowLeft } from "react-feather";
 import { useHistory } from "react-router-dom";
 import { COLOR_WHITE } from "../../../constant/styles";
 import { TextMid, TextSmall } from "../../Text/Text";
+import RhapsoSelectLang from "./RhapsoSelectLang";
 
 const RhapsoHeader = ({ text, date }) => {
   const history = useHistory();
@@ -11,6 +12,10 @@ const RhapsoHeader = ({ text, date }) => {
       <BackButton onClick={() => history.goBack()}>
         <ArrowLeft color={COLOR_WHITE} />
       </BackButton>
+
+      <SelectorHolder>
+        <RhapsoSelectLang />
+      </SelectorHolder>
       <TitleWrap>
         <TextMid color={COLOR_WHITE}>{text}</TextMid>
         <TextSmall color={COLOR_WHITE}>{date}</TextSmall>
@@ -59,4 +64,10 @@ const BackButton = styled.div`
   position: absolute;
   top: 10px;
   left: 10px;
+`;
+
+const SelectorHolder = styled.div`
+  position: absolute;
+  top: 10px;
+  right: 10px;
 `;

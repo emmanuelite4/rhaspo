@@ -4,15 +4,16 @@ import { COLOR_TEXT_PRIMARY } from "../../../constant/styles";
 import useGetAudioURI from "../../../hooks/useGetAudioURI";
 import useGetTranlatedText from "../../../hooks/useGetTranlatedText";
 import {
-  CSS_CONTAINER_BORDER,
+  CSS_CONTAINER_BORDER_RADIUS,
   CSS_CONTAINER_PADDING,
+  CSS_CONTAINER_BORDER,
 } from "../../../style/shared";
 import { TextMid, TextNorm } from "../../Text/Text";
 
 const TranslatedText = () => {
   const [uri] = useGetAudioURI();
   const [text] = useGetTranlatedText();
-
+  console.log(text);
   return (
     <Holder>
       {/* <video controls autoPlay name="media">
@@ -48,6 +49,7 @@ export default TranslatedText;
 
 const Holder = styled.div`
   ${CSS_CONTAINER_PADDING}
+  ${CSS_CONTAINER_BORDER_RADIUS}
   ${CSS_CONTAINER_BORDER}
   background-color: var(--color-white);
 `;

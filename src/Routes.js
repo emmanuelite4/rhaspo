@@ -3,7 +3,7 @@ import {
   CONDITIONAL_URI,
   HOME_URL,
   LANDING_URL,
-  RHAPSO_URL,
+  RHAPSODY_URL,
 } from "./constant/navigation";
 import HomeContainer from "./container/HomeContainer";
 import LandingContainer from "./container/LandingContainer";
@@ -18,7 +18,7 @@ const Routes = () => {
         component={HomeContainer}
         exact
       />
-      <Route path={RHAPSO_URL} component={RhapsoContainer} exact />
+      <Route path={RHAPSODY_URL} component={RhapsoContainer} exact />
     </Switch>
   );
 };

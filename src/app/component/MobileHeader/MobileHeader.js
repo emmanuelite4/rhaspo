@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { Menu, Repeat, Type } from "react-feather";
 import useGetLanguage from "../../../hooks/useGetLanguage";
 import useSearchToggle from "../../../hooks/useSearchToggle";
-import { CSS_CONTAINER_BORDER } from "../../../style/shared";
+import { CSS_CONTAINER_BORDER_RADIUS } from "../../../style/shared";
 import LanguageSearch from "../LanguageSearch/LanguageSearch";
 import Select from "../Select/Select";
 
@@ -34,9 +34,9 @@ const MobileHeader = () => {
 export default MobileHeader;
 
 const Holder = styled.div`
-  background-color: var(--color-white);
+  background-color: var(--color-background);
   height: 50px;
-  ${CSS_CONTAINER_BORDER}
+  ${CSS_CONTAINER_BORDER_RADIUS}
   display: flex;
 `;
 

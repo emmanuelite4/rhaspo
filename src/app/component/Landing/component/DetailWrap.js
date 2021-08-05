@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { useHistory } from "react-router-dom";
-import { HOME_URL, RHAPSO_URL } from "../../../../constant/navigation";
+import { HOME_URL, RHAPSODY_URL } from "../../../../constant/navigation";
 import {
   COLOR_FADE_WHIHE,
   COLOR_PRIMARY,
@@ -18,7 +18,7 @@ const DetailWrap = () => {
       <Button
         bgColor={COLOR_WHITE}
         textColor={COLOR_PRIMARY}
-        onClick={() => history.push(RHAPSO_URL)}
+        onClick={() => history.push(RHAPSODY_URL)}
       >
         Rhapsody Translator
       </Button>

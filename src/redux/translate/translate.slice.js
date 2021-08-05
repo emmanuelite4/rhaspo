@@ -22,9 +22,7 @@ export const fetchAudioURi = createAsyncThunk(
 
 export const fetchTranlatedLanguage = createAsyncThunk(
   "tranlate/tranlateLanguage",
-  async (text, lang) => {
-    await handleTranlateLanguage(text, lang);
-  }
+  async ({ text, lang }) => await handleTranlateLanguage({ text, lang })
 );
 
 const translateSlice = createSlice({
@@ -37,16 +35,13 @@ const translateSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchAudioURi.fulfilled, (state, action) => {
-      console.log(action.payload);
       state.audioURi = action.payload;
     });
     builder.addCase(fetchAudioURi.rejected, (state, action) => {
-      console.log(action.payload);
       state.error = action.payload;
     });
     builder.addCase(fetchTranlatedLanguage.fulfilled, (state, action) => {
-      console.log(action.payload);
-      state.text = action.payload;
+      state.tranlatedText = action.payload;
     });
   },
 });

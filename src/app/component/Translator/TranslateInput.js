@@ -10,10 +10,11 @@ import { COLOR_PRIMARY } from "../../../constant/styles";
 import useGetTextFromImage from "../../../hooks/useGetTextFromImage";
 import useGetTextFromStore from "../../../hooks/useGetTextFromStore";
 import useScanner from "../../../hooks/useScanner";
-import useTextToSpeech from "../../../hooks/useTextToSpeechForm";
+import useTranslateText from "../../../hooks/useTranslateText";
 import {
-  CSS_CONTAINER_BORDER,
+  CSS_CONTAINER_BORDER_RADIUS,
   CSS_CONTAINER_PADDING,
+  CSS_CONTAINER_BORDER,
 } from "../../../style/shared";
 import Button from "../Button/Button";
 import HomeRoutesContainer from "../HomeRoute/HomeRoutesContainer";
@@ -26,7 +27,7 @@ import TranslateCamera from "./TranslateCamera";
 
 const TranslateInput = () => {
   const history = useHistory();
-  const [value, onChange, onSubmit] = useTextToSpeech();
+  const [value, onChange, onSubmit] = useTranslateText();
   const [imageURI, onCaptureImage] = useScanner();
   const { param } = useParams();
   const [loading, text, onSetImage] = useGetTextFromImage();
@@ -109,7 +110,8 @@ const TranslateInputField = styled.textarea`
   font-size: 20px;
   border: none;
   outline: none;
-  ${CSS_CONTAINER_BORDER}
-  ${CSS_CONTAINER_PADDING}
-  margin-bottom:20px;
+  ${CSS_CONTAINER_BORDER_RADIUS};
+  ${CSS_CONTAINER_PADDING};
+  ${CSS_CONTAINER_BORDER};
+  margin-bottom: 20px;
 `;

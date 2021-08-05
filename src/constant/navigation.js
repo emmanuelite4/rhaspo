@@ -1,6 +1,6 @@
 export const LANDING_URL = "/landing";
 export const HOME_URL = "/text";
-export const RHAPSO_URL = "/rhapso";
+export const RHAPSODY_URL = "/rhapsody";
 
 export const HOME_ROUTE_TEXT = "/text";
 export const HOME_ROUTE_SPEECH = "/speech";

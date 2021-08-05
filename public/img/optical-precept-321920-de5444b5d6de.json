@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "optical-precept-321920",
+  "private_key_id": "de5444b5d6dedb4a7259d37df043054977689675",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCuf3WSjN5DzhNZ\nGkdwBLPEViteL8qeMVV+Nef2oJOqKtUdac6CZJUqUoNjCLMqjrlUtGY/gzdlTNsI\nzZ9SMPxuDMiKtbis6Z02cJ32qB67TdBHQmTIrZCD5sSYalE2hm869AAOocJTHES1\ntyoyQl/YDRbNnCTfLPRsYZ8pkx53P8wLTg5F55T+Z0iub0mZ3it2GW6XHIvXBT2d\nRFoMqvQrbJXzIJyqXb0aaGKj+RDLpGLbR0WdBKZM1mgQeoNc7OmQbe082zArCkgr\nRWJq7Ysbz9XlZBDMB41g+gbAXHfU00Qse1yPUch8tcVltOWFYaNtBmFWGylXb9Tn\nLVduZsTPAgMBAAECggEAERm3lW2NqJps5fn/zzf+v/pr1JadZiRSiwRQX6h74BzD\ndtb0IG4n+hZM/usO19hVzDnDnWzIBHrkKjgwaVcYndZN3t4RI4zfVcLykAYIwPVO\nuHUGuG3d8Dcww/kDTXMeOmpICScMCqYGC8LP9U3w45Tgy7SGHoLizy4/8UyUGz5x\nT+W8/FGhmDARUSgaD928iSm09NnslEEQH4tGDtniAusaVG6PzMJRyAWI3imphL4N\nucuaCPcu6M8RZCyo1wmRa04GGb3uC6G7HgaGQ1Tp9pvbTcUI08Khhe6YzU405N3Y\nX+WDf5pAXGzjXedKc0cksBW/TXR8D5mIU9htrF9zyQKBgQDeLpCC++vfAtyY22J3\nLcIlkGn5vHgKqmF0EOVIXKDwR+pxHe75MaIUeFTg14d/2ZqCrCUTFiTWYHqjgLyQ\nuRftFngNLoMLg/MNt7TKI/x4YWVeZ6wqagWagpQPx1M9iL6Xihs+uWNBqhxooNoz\nWyPihSULEM9mwOtO0c+YUG6D+QKBgQDJDty4G/DAu2aX8H1lvuLyltAd6tmzSoJU\nb46JwrImS7KQUEP8G2+vKBKOBxihsL7H73bd0muBjyCMSiUGXN16ZhezORfCDo5R\n1sU34br90h6oIpC2vRGztVFjQYpyCc3fpTClywUmCS1ez2QULXxvPmYODnUN5lpv\nRL/XR7KxBwKBgHhYLHpmTgqLmEVLf3giVujV4jEdPsA4LXUaubaKRbogmgIPPqPH\nmI0R6Jeo5oH/sctZxvMhqW5c79CkKH8TYrxO0VQCf4S7QemKOejLuTLTPn72FLEc\noFBiriQlyRapfOLEMaG19OdaZuzdQ5NRqIxHphrqTgzQLiSRTKqp1lKxAoGBAKHm\nYtuqPBqmjP2KfR+CL7PSt3Fv3K/gLsSZNDlAWz41NGu7BpOq8CsmZJKTqkUBUw8i\niCAlQcaJH1d4mQnfm8TlEu6R6cys9fN2s0bFcVLUcTVI6CkOZIPGXOxFKZucw3f0\nyBCpQ9MWDr/K1rbczdeycnGdOKrhtC7nOGe9Z2nfAoGAf4+J27eMjZGZXvMGJ81F\nHWcJNb63Rcf6TE5uDYyNtHsq/+kOwtD1JOssJQmU6AcXAxa3IthUBNVO1VK278Xh\nYhhN1UdxP/IBTkF90L+PiRNNfFYiP6kt+DlSiglbZSMeqJB775G8Zw+0pUgC1pFx\nhh1v0F7TWDZqDM2PiFNLUWk=\n-----END PRIVATE KEY-----\n",
+  "client_email": "rhaspo-31@optical-precept-321920.iam.gserviceaccount.com",
+  "client_id": "113032113156852643050",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/rhaspo-31%40optical-precept-321920.iam.gserviceaccount.com"
+}

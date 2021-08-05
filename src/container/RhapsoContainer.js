@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 import { CSS_CONTAINER_STYLE } from "../style/shared";
 import RhapsoHeader from "../app/component/Rhapso/RhapsoHeader";
 import useGetRhaspo from "../hooks/useGetRhaspo";
+import RhapsoSelectLang from "../app/component/Rhapso/RhapsoSelectLang";
 
 const RhapsoContainer = () => {
   const [data] = useGetRhaspo();
@@ -12,7 +13,6 @@ const RhapsoContainer = () => {
   return (
     <Holder>
       <RhapsoHeader text={title} date={date} />
-      <MobileHeader />
       <Rhapso prayer={prayer} bibleVerse={bibleVerse} message={message} />
     </Holder>
   );
