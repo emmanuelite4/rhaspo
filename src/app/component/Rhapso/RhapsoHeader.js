@@ -3,9 +3,10 @@ import { ArrowLeft } from "react-feather";
 import { useHistory } from "react-router-dom";
 import { COLOR_WHITE } from "../../../constant/styles";
 import { TextMid, TextSmall } from "../../Text/Text";
+import Loader from "../Loader/Loader";
 import RhapsoSelectLang from "./RhapsoSelectLang";
 
-const RhapsoHeader = ({ text, date }) => {
+const RhapsoHeader = ({ text, date, loading }) => {
   const history = useHistory();
   return (
     <Holder>
@@ -20,6 +21,12 @@ const RhapsoHeader = ({ text, date }) => {
         <TextMid color={COLOR_WHITE}>{text}</TextMid>
         <TextSmall color={COLOR_WHITE}>{date}</TextSmall>
       </TitleWrap>
+
+      {loading && (
+        <LoaderWrap>
+          <Loader color={COLOR_WHITE} />
+        </LoaderWrap>
+      )}
     </Holder>
   );
 };
@@ -83,5 +90,11 @@ const BackButton = styled.div`
 const SelectorHolder = styled.div`
   position: absolute;
   top: 10px;
+  right: 10px;
+`;
+
+const LoaderWrap = styled.div`
+  position: absolute;
+  bottom: 10px;
   right: 10px;
 `;

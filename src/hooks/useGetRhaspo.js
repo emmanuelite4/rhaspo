@@ -1,9 +1,10 @@
 import { useSelector } from "react-redux";
 
 const useGetRhaspo = () => {
-  const data = useSelector((state) => state.rhapsody.content);
+  const rhapso = useSelector((state) => state.rhapsody);
+  const { content, loading } = rhapso;
 
-  return [data];
+  return [content, loading];
 };
 
 export default useGetRhaspo;

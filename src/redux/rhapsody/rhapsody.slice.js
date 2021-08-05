@@ -3,17 +3,18 @@ import { handleTranslateRhapsody } from "./rhapsody.helper";
 
 const initialState = {
   content: {
-    title: "THE KINGDOM IN YOU",
+    title: "TDISCOVER WHO YOU ARE IN HIM",
     bibleVerse:
-      "“Now after that John was put in prison, Jesus came into Galilee, preaching the gospel of the kingdom of God (Mark 1:14).“",
+      "“And be not conformed to this world: but be ye transformed by the renewing of your mind, that ye may prove what is that good, and acceptable, and perfect, will of God (Romans 12:2).“",
     message:
-      "Jesus came preaching the Gospel of the Kingdom of God. He said the time was fulfilled, and that the Kingdom of God was near (Mark 1:15). What is the Kingdom of God? The Kingdom of God isn’t a place; it’s the reign of God, where He rules as Lord, and expresses Himself—His glory and His goodness.That’s why Jesus cautioned that when we’re told, “the Kingdom of God is over there,” or “it’s over here,” don’t believe it, because the Kingdom doesn’t come by observation; it’s within you (Luke 17:20-21). God’s plan in this age is to set up His Kingdom in the hearts of men as a spiritual kingdom.Recall when Jesus was brought before Pilate, in John 18:36-37; Pilate asked Him some questions to which He responded, “…My Kingdom is not of this world…” (John 18:36). God’s Kingdom isn’t a physical structure; yet Jesus said, “It has come!” Indeed, it has, because it’s in our hearts.The Gospel today is that God’s Kingdom can be set up in the hearts of men; it has arrived! Jesus said, “…If a man love me, he will keep my words: and my Father will love him, and we will come unto him, and make our abode with him” (John 14:23). This wasn’t provided in the days of Abraham, Moses, Elijah, Elisha, David, Solomon and the patriarchs of old; but it is in our day.When Jesus came, He brought the Kingdom in Him. Now that we’ve received Him, we have the Kingdom in us: the glory, grace and the life of God— all of divinity has been set up in your heart! God is at home in you now. You’ve become, not just a citizen of the Kingdom, but also the bearer or carrier of the Kingdom, of divine verities. Hallelujah!",
+      "Before the coming of the Messiah, it was prophesied that Elijah would come first (Malachi 4:5-6). The Scribes used this prophecy as evidence against the messiahship of Jesus. But the disciples, having seen Elijah with their own eyes talking with Jesus on the Mount of Transfiguration (Read Matthew 17:1-3), asked Jesus, “…Why then say the scribes that Elias must first come?” (Matthew 17:10). To their surprise, Jesus confirmed the Scribes insistence that Elijah must come first before the Messiah. He said, “…Elias truly shall first come, and restore all things. But I say unto you, That Elias is come already, and they knew him not, but have done unto him whatsoever they listed. Likewise shall also the Son of man suffer of them” (Matthew 17:11-12). The Bible says, “Then the disciples understood that he spake unto them of John the Baptist” (Matthew 17:13). Elijah already came, but they didn’t know it, because they were looking in the flesh! There’re many Christians who are like that today. All they’re dreaming, praying, struggling to be and have in God, they already are, and already have, but they don’t know it. This is why you must know the Word. Through the knowledge of the Word, you’re enlightened as to your identity and heritage in Christ. Nothing could be greater or better than Christ in you, and you in Christ. You’ve got to come to the full realization that as He is, so are you (1 John 4:17). You’re His righteousness, the expression of all the perfect things that are consistent with His nature—His goodness, His kindness, His love, His humility, and excellence! This is why our theme verse admonishes that you renew your mind, because it’s only through the Scriptures, by the Spirit, that you discover what God has already made you and granted you in Christ.",
     prayer:
-      "Dear Father, I thank you for your Kingdom that’s in my heart; your glory and righteousness that are in me and revealed through me. Your Kingdom reigns, and it’s established in the earth, and in the hearts of men as the Gospel is proclaimed around the world today, in Jesus’ Name. Amen.",
+      "Everything I require for life and godliness has been granted me by God. I refuse to look in the flesh. I don’t struggle, and I don’t fret. Every provision of the Gospel is both legally and vitally my possession NOW! I walk in my inheritance, in the full blessings of the Gospel, in Jesus’ Name. Amen.",
     date: "Rhapsody Of Realities Thursday 1st",
     prayerConclusionLabel: "Prayer / Conclusion",
   },
   translated: false,
+  loading: false,
   error: "",
 };
 
@@ -33,12 +34,17 @@ const rhapsody = createSlice({
     //   getDefaultContent()
   },
   extraReducers: (builder) => {
+    builder.addCase(fetchTranslatedRhaspo.pending, (state, action) => {
+      state.loading = true;
+    });
     builder.addCase(fetchTranslatedRhaspo.fulfilled, (state, action) => {
       state.content = action.payload;
+      state.loading = false;
     });
     builder.addCase(fetchTranslatedRhaspo.rejected, (state, action) => {
       console.log(action.payload);
       state.error = action.payload;
+      state.loading = false;
     });
   },
 });

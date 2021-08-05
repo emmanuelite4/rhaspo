@@ -6,16 +6,16 @@ import useGetRhaspo from "../hooks/useGetRhaspo";
 import DesktopHeader from "../app/component/HomeHeader/DesktopHeader";
 
 const RhapsoContainer = () => {
-  const [data] = useGetRhaspo();
-  console.log(data);
+  const [content, loading] = useGetRhaspo();
 
+  console.log(loading);
   const { title, bibleVerse, message, date, prayer, prayerConclusionLabel } =
-    data;
+    content;
   return (
     <Holder>
       <DesktopHeader title="Rhapso Translate" />
       <Body>
-        <RhapsoHeader text={title} date={date} />
+        <RhapsoHeader text={title} date={date} loading={loading} />
         <Rhapso
           prayer={prayer}
           bibleVerse={bibleVerse}
