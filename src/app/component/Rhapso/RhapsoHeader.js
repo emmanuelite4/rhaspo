@@ -34,7 +34,7 @@ const RhapsoHeader = ({ text, date, loading }) => {
 export default RhapsoHeader;
 
 const Holder = styled.div`
-  background: url(/img/bible.jpeg) no-repeat center;
+  background: url(/img/rhapso.jpg) no-repeat top;
   height: 250px;
   background-size: cover;
   position: relative;
