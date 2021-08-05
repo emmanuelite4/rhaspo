@@ -34,7 +34,7 @@ const RhapsoHeader = ({ text, date, loading }) => {
 export default RhapsoHeader;
 
 const Holder = styled.div`
-  background: url(/img/rhapso.jpg) no-repeat top;
+  background: url(/img/pastor.jpeg) no-repeat top;
   height: 250px;
   background-size: cover;
   position: relative;
