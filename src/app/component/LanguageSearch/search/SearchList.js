@@ -26,5 +26,6 @@ export default SearchList;
 const Holder = styled.div``;
 
 const Item = styled.div`
-  ${CSS_CONTAINER_PADDING}
+  ${CSS_CONTAINER_PADDING};
+  cursor: pointer;
 `;

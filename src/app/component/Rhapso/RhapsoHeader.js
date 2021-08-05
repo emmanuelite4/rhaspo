@@ -48,6 +48,10 @@ const Holder = styled.div`
     height: 100%;
     width: 100%;
   }
+
+  @media (min-width: 567px) {
+    padding: 0;
+  }
 `;
 
 const TitleWrap = styled.div`
@@ -57,6 +61,13 @@ const TitleWrap = styled.div`
   & > :first-child {
     margin-bottom: 10px;
   }
+  @media (min-width: 567px) {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    width: 60%;
+    margin: 0px auto;
+  }
 `;
 
 const BackButton = styled.div`
@@ -64,6 +75,9 @@ const BackButton = styled.div`
   position: absolute;
   top: 10px;
   left: 10px;
+  @media (min-width: 567px) {
+    display: none;
+  }
 `;
 
 const SelectorHolder = styled.div`

@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import { useEffect } from "react";
-import Camera from "react-html5-camera-photo";
 import "react-html5-camera-photo/build/css/index.css";
 import { useHistory } from "react-router-dom";
 import { HOME_URL } from "../../../constant/navigation";
@@ -19,15 +18,8 @@ const TranslateCamera = ({ loading, imageURI, onSetImage }) => {
     <HomeRoutesContainer>
       <Holder>
         <CancelButton onCancel={() => history.goBack()} />
-        {/* <input
-        accept="image/*"
-        // className={classes.input}
-        id="icon-button-file"
-        type="file"
-        capture="environment"
-        onChange={(e) => onCaptureImage(e.target)}
-      /> */}
-        <CapturedImage src={imageURI} alt={"snap"} />;
+        {imageURI && <CapturedImage src={imageURI} alt={"snap"} />}
+
         <ButtonHolder>
           <Button onClick={onSetImage(imageURI)} disabled={loading}>
             Scan Image
@@ -35,11 +27,6 @@ const TranslateCamera = ({ loading, imageURI, onSetImage }) => {
           {loading && <Loader />}
         </ButtonHolder>
       </Holder>
-      {/* <Camera
-      // onTakePhoto={(dataUri) => {
-      //   handleTakePhoto(dataUri);
-      // }}
-      /> */}
     </HomeRoutesContainer>
   );
 };

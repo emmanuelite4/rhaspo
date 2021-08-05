@@ -24,4 +24,8 @@ const Holder = styled.div`
   & > :first-child {
     margin-right: 20px;
   }
+
+  @media (min-width: 576px) {
+    display: none;
+  }
 `;

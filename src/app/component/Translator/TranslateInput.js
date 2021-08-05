@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { useEffect } from "react";
 import { Camera, Mic, Volume2 } from "react-feather";
 import { useHistory, useParams } from "react-router-dom";
 import {
@@ -8,7 +9,7 @@ import {
 } from "../../../constant/navigation";
 import { COLOR_PRIMARY } from "../../../constant/styles";
 import useGetTextFromImage from "../../../hooks/useGetTextFromImage";
-import useGetTextFromStore from "../../../hooks/useGetTextFromStore";
+import useResize from "../../../hooks/useResize";
 import useScanner from "../../../hooks/useScanner";
 import useTranslateText from "../../../hooks/useTranslateText";
 import {
@@ -18,12 +19,8 @@ import {
 } from "../../../style/shared";
 import Button from "../Button/Button";
 import HomeRoutesContainer from "../HomeRoute/HomeRoutesContainer";
-import SpeechStateUI from "../SpeechToSpeech/component/SpeechStateUI";
+import SpeechStateUI from "../SpeechToSpeech/SpeechStateUI";
 import TranslateCamera from "./TranslateCamera";
-// import Button from "../Button/Button";
-
-// import Camera from "react-html5-camera-photo";
-// import "react-html5-camera-photo/build/css/index.css";
 
 const TranslateInput = () => {
   const history = useHistory();
@@ -31,9 +28,11 @@ const TranslateInput = () => {
   const [imageURI, onCaptureImage] = useScanner();
   const { param } = useParams();
   const [loading, text, onSetImage] = useGetTextFromImage();
+  const [resize, onResize] = useResize();
 
-  const [STORE_TEXT] = useGetTextFromStore();
-
+  useEffect(() => {
+    if (imageURI) onResize(imageURI);
+  }, [imageURI]);
   return (
     <Holder>
       <form onSubmit={onSubmit}>
@@ -41,7 +40,7 @@ const TranslateInput = () => {
           placeholder="Start typing..."
           value={value}
           onChange={onChange}
-          rows={9}
+          rows={10}
         />
         <ButtonHolder>
           {/* <Button iconRight={<Loader />}>Translating</Button> */}
@@ -76,10 +75,10 @@ const TranslateInput = () => {
         </ButtonHolder>
       </form>
 
-      {imageURI && param === "scan" && (
+      {resize && param === "scan" && (
         <TranslateCamera
           loading={loading}
-          imageURI={imageURI}
+          imageURI={resize}
           onSetImage={onSetImage}
         />
       )}

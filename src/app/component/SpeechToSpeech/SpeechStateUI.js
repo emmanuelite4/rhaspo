@@ -1,13 +1,10 @@
-import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
-import { Loader, Mic, X } from "react-feather";
-import { COLOR_TEXT_PRIMARY, COLOR_WHITE } from "../../../../constant/styles";
-import { CSS_CARD } from "../../../../style/shared";
-import { TextNorm } from "../../../Text/Text";
-import { ReactMic } from "react-mic";
-import useMic from "../../../../hooks/useMic";
+import { Mic, X } from "react-feather";
+import { COLOR_WHITE } from "../../../constant/styles";
+import { CSS_CARD } from "../../../style/shared";
+import { TextNorm } from "../../Text/Text";
+import useMic from "../../../hooks/useMic";
 import { useHistory } from "react-router-dom";
-import { HOME_URL } from "../../../../constant/navigation";
 
 const SpeechStateUI = () => {
   const [onMicStart, onMicStop] = useMic();
@@ -21,17 +18,6 @@ const SpeechStateUI = () => {
         <Mic size={40} color={COLOR_WHITE} />
       </InitialStateWrapper>
       <TextNorm onClick={onMicStop}>Spanish</TextNorm>
-      {/* <LoaindStateWrapper>
-        <Loader size={40} color={COLOR_TEXT_PRIMARY} />
-      </LoaindStateWrapper> */}
-      {/* <ReactMic
-        // record={this.state.record}
-        className="sound-wave"
-        // onStop={this.onStop}
-        // onData={this.onData}
-        strokeColor="#000000"
-        backgroundColor="#FF4081"
-      /> */}
     </Holder>
   );
 };
@@ -63,16 +49,4 @@ const CancelButtonHolder = styled.div`
   position: absolute;
   top: 20px;
   right: 20px;
-`;
-
-const rotation = keyframes`
-    from {
-        transform:rotate(0deg);
-    } to {
-        transform: rotate(360deg)
-    }
-`;
-
-const LoaindStateWrapper = styled.div`
-  animation: ${rotation} 0.8s ease infinite;
 `;

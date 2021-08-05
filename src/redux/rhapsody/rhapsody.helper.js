@@ -1,4 +1,4 @@
-import { handleTranlateText } from "../../app/utils.js/helper";
+import { handleTranlateText } from "../../utils/helper";
 
 export const handleTranslateRhapsody = async (data) => {
   const lang = data.lang.code;

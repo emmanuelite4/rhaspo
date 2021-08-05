@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import Tesseract from "tesseract.js";
+import { HOME_URL } from "../constant/navigation";
 import { setCurrentText } from "../redux/translate/translate.slice";
 
 const useGetTextFromImage = () => {
@@ -27,7 +28,7 @@ const useGetTextFromImage = () => {
         setLoading(false);
         dispatch(setCurrentText(text));
         setText(text);
-        history.goBack();
+        history.push(HOME_URL);
       });
     }
   }, [imageURI]);

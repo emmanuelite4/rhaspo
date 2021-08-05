@@ -1,33 +1,24 @@
 import styled from "@emotion/styled";
-import { useParams } from "react-router-dom";
+import DesktopHeader from "../app/component/HomeHeader/DesktopHeader";
 import Header from "../app/component/HomeHeader/Header";
-import HomeRoutes from "../app/component/HomeRoute/HomeRoutes";
-import HomeRoutesContainer from "../app/component/HomeRoute/HomeRoutesContainer";
 import MobileHeader from "../app/component/MobileHeader/MobileHeader";
-import SpeechStateUI from "../app/component/SpeechToSpeech/component/SpeechStateUI";
-import SpeechToSpeech from "../app/component/SpeechToSpeech/SpeechToSpeech";
-import TranslateModes from "../app/component/TranslateModes/TranslateModes";
-import TextTranslator from "../app/component/Translator/TextTranslator";
 import TranslatedText from "../app/component/Translator/TranslatedText";
 import TranslateInput from "../app/component/Translator/TranslateInput";
-import useGetTextToSpeechURi from "../hooks/useGetTextToSpeechURi";
 import { CSS_CONTAINER_STYLE } from "../style/shared";
 
 const HomeContainer = () => {
   return (
     <Holder>
+      <DesktopHeader title="Rhapso Translate" />
       <Header title="Translate" />
       <Body>
         <MobileHeader />
-        {/* <TextTranslator /> */}
-        <TranslateInput />
+        <TranslateBody>
+          <TranslateInput />
 
-        <TranslatedText />
-        {/* <TranslateModes /> */}
-        <HomeRoutes />
+          <TranslatedText />
+        </TranslateBody>
       </Body>
-
-      {/* <SpeechToSpeech /> */}
     </Holder>
   );
 };
@@ -42,4 +33,22 @@ const Holder = styled.div`
 
 const Body = styled.div`
   ${CSS_CONTAINER_STYLE};
+`;
+
+const TranslateBody = styled.div`
+  @media (max-width: 576px) {
+    & > :first-child {
+      margin-bottom: 20px;
+    }
+  }
+  @media (min-width: 576px) {
+    display: flex;
+    width: 100%;
+    & > :first-child {
+      margin-right: 30px;
+    }
+    & > div {
+      flex: 1;
+    }
+  }
 `;

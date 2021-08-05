@@ -6,7 +6,6 @@ const util = require("util");
 const CREDENTIALS = JSON.parse(process.env.REACT_APP_CREDENTIALS);
 
 export const handleTranlateText = async (text, lang) => {
-  console.log(text, lang);
   // Creates a client
   const translate = new Translate({
     credentials: CREDENTIALS,
@@ -48,10 +47,16 @@ export const handleTextToSpeech = async (text = "Hello world") => {
   // Write the binary audio content to a local file
   const writeFile = util.promisify(fs.writeFile);
   let res = await writeFile("output.mp3", response.audioContent, "binary");
-  console.log(res);
+  logger(res);
 
-  console.log("Audio content written to file: output.mp3");
+  logger("Audio content written to file: output.mp3");
   return res;
 };
 
 // handleTextToSpeech();
+
+export const logger = (param) => {
+  if (process.env.NODE_ENV === "development") {
+    console.log(param);
+  }
+};

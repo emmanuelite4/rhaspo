@@ -30,4 +30,9 @@ const ButtonWrapper = styled.button`
   &:disabled {
     opacity: 0.4;
   }
+
+  @media (min-width: 576px) {
+    border-radius: 10px;
+    cursor: pointer;
+  }
 `;

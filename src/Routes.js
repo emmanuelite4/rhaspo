@@ -1,4 +1,4 @@
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import {
   CONDITIONAL_URI,
   HOME_URL,
@@ -8,6 +8,9 @@ import {
 import HomeContainer from "./container/HomeContainer";
 import LandingContainer from "./container/LandingContainer";
 import RhapsoContainer from "./container/RhapsoContainer";
+
+const mobile = window.matchMedia("(max-width: 576px)").matches;
+console.log(mobile);
 
 const Routes = () => {
   return (
@@ -19,6 +22,13 @@ const Routes = () => {
         exact
       />
       <Route path={RHAPSODY_URL} component={RhapsoContainer} exact />
+      <Route path="/" exact>
+        {mobile ? (
+          <Redirect to={LANDING_URL} />
+        ) : (
+          <Redirect to={RHAPSODY_URL} />
+        )}
+      </Route>
     </Switch>
   );
 };

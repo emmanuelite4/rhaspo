@@ -11,8 +11,8 @@ const useScanner = () => {
     if (target.files) {
       if (target.files.length !== 0) {
         const file = target.files[0];
-        const newUrl = URL.createObjectURL(file);
-        setImageURI(newUrl);
+
+        setImageURI(file);
       }
     }
   };

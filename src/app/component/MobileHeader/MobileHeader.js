@@ -38,6 +38,11 @@ const Holder = styled.div`
   height: 50px;
   ${CSS_CONTAINER_BORDER_RADIUS}
   display: flex;
+
+  @media (min-width: 576px) {
+    width: 500px;
+    margin: auto;
+  }
 `;
 
 const MenuButtonHolder = styled.div`
