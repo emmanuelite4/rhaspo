@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import DesktopHeader from "../app/component/HomeHeader/DesktopHeader";
 import Header from "../app/component/HomeHeader/Header";
 import MobileHeader from "../app/component/MobileHeader/MobileHeader";
+import CategoryContainer from "../app/component/Rhapso/CategoryContainer";
 import TranslatedText from "../app/component/Translator/TranslatedText";
 import TranslateInput from "../app/component/Translator/TranslateInput";
 import { CSS_CONTAINER_STYLE } from "../style/shared";
@@ -11,14 +12,16 @@ const HomeContainer = () => {
     <Holder>
       <DesktopHeader title="Rhapso Translate" />
       <Header title="Translate" />
-      <Body>
-        <MobileHeader />
-        <TranslateBody>
-          <TranslateInput />
+      <CategoryContainer>
+        <Body>
+          <MobileHeader />
+          <TranslateBody>
+            <TranslateInput />
 
-          <TranslatedText />
-        </TranslateBody>
-      </Body>
+            <TranslatedText />
+          </TranslateBody>
+        </Body>
+      </CategoryContainer>
     </Holder>
   );
 };
@@ -36,12 +39,7 @@ const Body = styled.div`
 `;
 
 const TranslateBody = styled.div`
-  @media (max-width: 576px) {
-    & > :first-child {
-      margin-bottom: 20px;
-    }
-  }
-  @media (min-width: 576px) {
+  @media (min-width: 992px) {
     display: flex;
     width: 100%;
     & > :first-child {

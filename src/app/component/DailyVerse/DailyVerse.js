@@ -35,13 +35,6 @@ const DailyVerse = () => {
           <Volume2 color={COLOR_PRIMARY} size={50} />
         </IconButton>
       </ButtonWrapper>
-      <br />
-      <RhapsoButtonHolder onClick={() => history.push(RHAPSODY_URL)}>
-        <RhapsoIconWrap>
-          <Book size={40} color={COLOR_PRIMARY} />
-        </RhapsoIconWrap>
-        <TextNorm color={COLOR_SECONDARY}>Rhapsody of Realities</TextNorm>
-      </RhapsoButtonHolder>
     </div>
   );
 };

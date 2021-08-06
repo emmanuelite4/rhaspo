@@ -13,3 +13,5 @@ export const RHAPSO_CATEGORY_URL = "/category";
 export const BOOK_URL = "/book";
 export const BOOK_PARAM = "/:id";
 export const BOOK_LIST_URL = "/books";
+
+export const PREACHING_URL = "/preaching";

@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import {
   BOOK_LIST_URL,
   DAILY_VERSE_URI,
+  PREACHING_URL,
   RHAPSODY_URL,
 } from "../../../constant/navigation";
 import {
@@ -13,19 +14,21 @@ import {
   COLOR_WHITE,
 } from "../../../constant/styles";
 import { TextBig, TextNorm, TextSmall } from "../../Text/Text";
-
+import MediaQuery from "react-responsive";
 const RhapsoCategory = () => {
   const history = useHistory();
   return (
     <Holder>
-      <CoverPhotoWrap>
-        <div>
-          <TextBig color={COLOR_WHITE}>Rhapso Translate</TextBig>
-          <TextSmall color={COLOR_WHITE}>
-            Get to know christ in your language
-          </TextSmall>
-        </div>
-      </CoverPhotoWrap>
+      <MediaQuery maxWidth={768}>
+        <CoverPhotoWrap>
+          <div>
+            <TextBig color={COLOR_WHITE}>Rhapso Translate</TextBig>
+            <TextSmall color={COLOR_WHITE}>
+              Get to know christ in your language
+            </TextSmall>
+          </div>
+        </CoverPhotoWrap>
+      </MediaQuery>
       <ButtonsWrap>
         <CategoryButton
           onClick={() => history.push(DAILY_VERSE_URI)}
@@ -37,11 +40,15 @@ const RhapsoCategory = () => {
           label="Rhapsody of Realities"
           onClick={() => history.push(RHAPSODY_URL)}
         />
-        <CategoryButton icon={MessageSquare} label="Pastor Chris' Teachings" />
         <CategoryButton
           icon={ShoppingBag}
           label="BookShop"
           onClick={() => history.push(BOOK_LIST_URL)}
+        />
+        <CategoryButton
+          icon={MessageSquare}
+          label="Pastor Chris' Teachings"
+          onClick={() => history.push(PREACHING_URL)}
         />
       </ButtonsWrap>
     </Holder>
@@ -60,7 +67,7 @@ const Holder = styled.div`
 const CoverPhotoWrap = styled.div`
   width: 100%;
   height: 400px;
-  background: url(/img/jesus-earth.png) no-repeat center;
+  background: url(/img/rhapso.jpeg) no-repeat center;
   background-size: cover;
   position: relative;
   border-bottom-left-radius: 20px;
@@ -71,6 +78,7 @@ const CoverPhotoWrap = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
+
   & > div {
     position: relative;
     z-index: 1;

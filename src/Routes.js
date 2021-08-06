@@ -7,6 +7,7 @@ import {
   DAILY_VERSE_URI,
   HOME_URL,
   LANDING_URL,
+  PREACHING_URL,
   RHAPSODY_URL,
   RHAPSO_CATEGORY_URL,
 } from "./constant/navigation";
@@ -15,6 +16,7 @@ import BookListContainer from "./container/BookListContainer";
 import DailyVerseContainer from "./container/DailyVerseContainer";
 import HomeContainer from "./container/HomeContainer";
 import LandingContainer from "./container/LandingContainer";
+import PreachingContainer from "./container/PreachingContainer";
 import RhapsoCategoryContainer from "./container/RhapsoCategoryContainer";
 import RhapsoContainer from "./container/RhapsoContainer";
 
@@ -39,6 +41,7 @@ const Routes = () => {
       <Route path={DAILY_VERSE_URI} component={DailyVerseContainer} exact />
       <Route path={BOOK_LIST_URL} component={BookListContainer} exact />
       <Route path={BOOK_URL + BOOK_PARAM} component={BookContainer} exact />
+      <Route path={PREACHING_URL} component={PreachingContainer} exact />
       <Route path="/" exact>
         {mobile ? (
           <Redirect to={LANDING_URL} />

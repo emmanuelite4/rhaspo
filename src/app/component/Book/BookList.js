@@ -23,22 +23,24 @@ const BookList = () => {
   return (
     <Holder>
       <TextBig>Book Library</TextBig>
-      {books.map((book, i) => (
-        <ItemWrapper key={i}>
-          <HeroImage src={book.imgUri} alt={book.name} />
-          <ItemTextWrap>
-            <TextMid color={COLOR_PRIMARY}>{book.name}</TextMid>
-            <TextNorm fontWeight="700" color={COLOR_SECONDARY}>
-              {book.price}
-            </TextNorm>
+      <ItemContainer>
+        {books.map((book, i) => (
+          <ItemWrapper key={i}>
+            <HeroImage src={book.imgUri} alt={book.name} />
+            <ItemTextWrap>
+              <TextMid color={COLOR_PRIMARY}>{book.name}</TextMid>
+              <TextNorm fontWeight="700" color={COLOR_SECONDARY}>
+                {book.price}
+              </TextNorm>
 
-            <PaystackButton
-              onSuccess={() => onPay(book.documentID)}
-              {...componentProps}
-            />
-          </ItemTextWrap>
-        </ItemWrapper>
-      ))}
+              <PaystackButton
+                onSuccess={() => onPay(book.documentID)}
+                {...componentProps}
+              />
+            </ItemTextWrap>
+          </ItemWrapper>
+        ))}
+      </ItemContainer>
     </Holder>
   );
 };
@@ -52,10 +54,26 @@ const Holder = styled.div`
   }
 `;
 
+const ItemContainer = styled.div`
+  display: grid;
+  gap: 20px;
+  @media (min-width: 576px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (min-width: 992px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  @media (min-width: 1400px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+`;
+
 const ItemWrapper = styled.div`
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   border-radius: 20px;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 `;
 
 const HeroImage = styled.img`
@@ -67,7 +85,10 @@ const HeroImage = styled.img`
 
 const ItemTextWrap = styled.div`
   padding: 20px;
-
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
   & > :last-child {
     margin-top: 20px;
     background-color: var(--color-primary);
@@ -81,5 +102,6 @@ const ItemTextWrap = styled.div`
     border: none;
     width: 100%;
     justify-content: center;
+    align-self: flex-end;
   }
 `;

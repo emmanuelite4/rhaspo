@@ -1,12 +1,17 @@
 import BookList from "../app/component/Book/BookList";
+import DesktopHeader from "../app/component/HomeHeader/DesktopHeader";
 import Header from "../app/component/HomeHeader/Header";
+import CategoryContainer from "../app/component/Rhapso/CategoryContainer";
 
 const BookListContainer = () => {
   return (
-    <div>
+    <>
+      <DesktopHeader title="Rhapso Translate" />
       <Header title="Rhapso Books" />
-      <BookList />
-    </div>
+      <CategoryContainer>
+        <BookList />
+      </CategoryContainer>
+    </>
   );
 };
 

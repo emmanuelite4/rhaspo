@@ -40,7 +40,7 @@ const Holder = styled.div`
   background-color: var(--color-white);
   padding: 20px 30px;
 
-  @media (max-width: 576px) {
+  @media (max-width: 768px) {
     display: none;
   }
   & > :nth-child(2) {

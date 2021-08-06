@@ -25,7 +25,7 @@ const Holder = styled.div`
     margin-right: 20px;
   }
 
-  @media (min-width: 576px) {
+  @media (min-width: 768px) {
     display: none;
   }
 `;

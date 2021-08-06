@@ -20,8 +20,11 @@ export const CSS_CONTAINER_STYLE = css`
   background-color: var(--color-white);
   padding: 20px;
   overflow: auto;
-  & > :not(:last-child) {
-    margin-bottom: 20px;
+
+  @media (max-width: 768px) {
+    & > :not(:last-child) {
+      margin-bottom: 20px;
+    }
   }
 `;
 

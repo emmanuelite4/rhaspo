@@ -1,10 +1,6 @@
 import styled from "@emotion/styled";
 import { useHistory } from "react-router-dom";
-import {
-  HOME_URL,
-  RHAPSODY_URL,
-  RHAPSO_CATEGORY_URL,
-} from "../../../../constant/navigation";
+import { HOME_URL, RHAPSO_CATEGORY_URL } from "../../../../constant/navigation";
 import {
   COLOR_FADE_WHIHE,
   COLOR_PRIMARY,
@@ -26,6 +22,7 @@ const DetailWrap = () => {
       >
         Rhapsody Translator
       </Button>
+      <br />
       <Button
         bgColor={COLOR_FADE_WHIHE}
         textColor={COLOR_WHITE}

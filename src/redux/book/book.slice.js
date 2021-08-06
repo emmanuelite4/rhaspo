@@ -32,26 +32,11 @@ export const fetchTranslatedBook = createAsyncThunk(
   async (content) => await handleTranslateBook(content)
 );
 
-// export const fetchTranslatedVerse = createAsyncThunk(
-//   "verse/getContent",
-//   async (data) => {
-//     return await handleTranslateVerse(data);
-//   }
-// );
-
 const bookSlice = createSlice({
   name: "book",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    //   builder.addCase(fetchVerseRandom.fulfilled, (state, action) => {
-    //     state.defaultLang = action.payload;
-    //     state.translatedVerse = action.payload;
-    //     state.loading = false;
-    //   });
-    //   builder.addCase(fetchVerseRandom.pending, (state, action) => {
-    //     state.loading = true;
-    //   });
     builder.addCase(fetchBooks.pending, (state, action) => {
       state.loading = true;
     });
