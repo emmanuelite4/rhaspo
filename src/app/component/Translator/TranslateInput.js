@@ -43,10 +43,8 @@ const TranslateInput = () => {
           rows={10}
         />
         <ButtonHolder>
-          {/* <Button iconRight={<Loader />}>Translating</Button> */}
           <input
             accept="image/*"
-            // className={classes.input}
             id="camera"
             type="file"
             capture="environment"

@@ -23,6 +23,7 @@ const ButtonWrapper = styled.button`
   align-items: center;
   outline: none;
   border: none;
+  width: ${(props) => props.width || "auto"};
   justify-content: center;
   & > :not(:first-child) {
     margin-left: 10px;

@@ -1,66 +1,59 @@
 import { useState, useEffect } from "react";
+import createSpeechServicesPonyfill from "web-speech-cognitive-services";
+import SpeechRecognition, {
+  useSpeechRecognition,
+} from "react-speech-recognition";
+import { useHistory } from "react-router-dom";
+import { HOME_URL } from "../constant/navigation";
+import { useDispatch } from "react-redux";
+import { setCurrentText } from "../redux/translate/translate.slice";
+
+const SUBSCRIPTION_KEY = "f23235972e5c4432854dfd85d9403472";
+const REGION = "eastus";
+const TOKEN_ENDPOINT = `https://${REGION}.api.cognitive.microsoft.com/sts/v1.0/issuetoken`;
+
 const useMic = () => {
-  const SpeechRecognition =
-    window.SpeechRecognition || window.webkitSpeechRecognition;
-  const mic = new SpeechRecognition();
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(true);
+  const { transcript, resetTranscript } = useSpeechRecognition();
 
-  mic.continuous = true;
-  mic.interimResults = true;
-  mic.lang = "en-US";
+  const startListening = () => {
+    setLoading(true);
+    SpeechRecognition.startListening({
+      continuous: true,
+      language: "en-US",
+    });
+  };
 
-  const [isMicOn, setOnMic] = useState(false);
-
-  var buttonColour;
-  var buttonLabel;
-
-  if (isMicOn) {
-    buttonColour = "secondary";
-    buttonLabel = "Recording...";
-  } else {
-    buttonColour = "primary";
-    buttonLabel = "Record";
-  }
+  const loadSpeechRecognition = async () => {
+    const response = await fetch(TOKEN_ENDPOINT, {
+      method: "POST",
+      headers: { "Ocp-Apim-Subscription-Key": SUBSCRIPTION_KEY },
+    });
+    const authorizationToken = await response.text();
+    const { SpeechRecognition: AzureSpeechRecognition } =
+      await createSpeechServicesPonyfill({
+        credentials: {
+          region: REGION,
+          authorizationToken,
+        },
+      });
+    SpeechRecognition.applyPolyfill(AzureSpeechRecognition);
+    setLoading(false);
+  };
 
   useEffect(() => {
-    handleListen();
-  }, [isMicOn]);
+    loadSpeechRecognition();
+  }, []);
+  const stopListening = () => {
+    history.push(HOME_URL);
+    dispatch(setCurrentText(transcript));
 
-  const handleListen = () => {
-    if (isMicOn) {
-      mic.start();
-      mic.onend = () => {
-        console.log("continue..");
-        mic.start();
-      };
-    } else {
-      mic.stop();
-      mic.onend = () => {
-        console.log("Stopped Mic on Click");
-      };
-    }
-    mic.onstart = () => {
-      console.log("Mics on");
-    };
-
-    mic.onresult = (event) => {
-      const transcript = Array.from(event.results)
-        .map((result) => result[0])
-        .map((result) => result.transcript)
-        .join("");
-      console.log(transcript);
-      mic.onerror = (event) => {
-        console.log(event.error);
-      };
-    };
-  };
-  const onMicStart = () => {
-    setOnMic(true);
-  };
-  const onMicStop = () => {
-    setOnMic(false);
+    return SpeechRecognition.stopListening;
   };
 
-  return [onMicStart, onMicStop];
+  return [loading, transcript, startListening, stopListening, resetTranscript];
 };
 
 export default useMic;

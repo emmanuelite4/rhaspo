@@ -3,14 +3,14 @@ import { handleTranslateRhapsody } from "./rhapsody.helper";
 
 const initialState = {
   content: {
-    title: "DISCOVER WHO YOU ARE IN HIM",
+    title: "CHRIST AT HOME IN YOU",
     bibleVerse:
-      "“And be not conformed to this world: but be ye transformed by the renewing of your mind, that ye may prove what is that good, and acceptable, and perfect, will of God (Romans 12:2).“",
+      "“To whom God would make known what is the riches of the glory of this mystery among the Gentiles; which is Christ in you, the hope of glory (Colossians 1:27).“",
     message:
-      "Before the coming of the Messiah, it was prophesied that Elijah would come first (Malachi 4:5-6). The Scribes used this prophecy as evidence against the messiahship of Jesus. But the disciples, having seen Elijah with their own eyes talking with Jesus on the Mount of Transfiguration (Read Matthew 17:1-3), asked Jesus, “…Why then say the scribes that Elias must first come?” (Matthew 17:10). To their surprise, Jesus confirmed the Scribes insistence that Elijah must come first before the Messiah. He said, “…Elias truly shall first come, and restore all things. But I say unto you, That Elias is come already, and they knew him not, but have done unto him whatsoever they listed. Likewise shall also the Son of man suffer of them” (Matthew 17:11-12). The Bible says, “Then the disciples understood that he spake unto them of John the Baptist” (Matthew 17:13). Elijah already came, but they didn’t know it, because they were looking in the flesh! There’re many Christians who are like that today. All they’re dreaming, praying, struggling to be and have in God, they already are, and already have, but they don’t know it. This is why you must know the Word. Through the knowledge of the Word, you’re enlightened as to your identity and heritage in Christ. Nothing could be greater or better than Christ in you, and you in Christ. You’ve got to come to the full realization that as He is, so are you (1 John 4:17). You’re His righteousness, the expression of all the perfect things that are consistent with His nature—His goodness, His kindness, His love, His humility, and excellence! This is why our theme verse admonishes that you renew your mind, because it’s only through the Scriptures, by the Spirit, that you discover what God has already made you and granted you in Christ.",
+      "“Christ in you” refers to all that’s in the character, personality, potency of the glory and graces of Christ embodied in you. And that’s done by the Holy Spirit. Recall the words of Jesus in John 14:23; “…If a man love me, he will keep my words: and my Father will love him, and we will come unto him, and make our abode with him.” This was before His death, burial, resurrection and ascension to heaven. He had said in John 14:16-17, “And I will pray the Father, and he shall give you another Comforter… ye know him; for he dwelleth with you, and shall be in you.” He made good on His promise, and on the day of Pentecost, the Holy Spirit came and indwelt the disciples. Today, being born again, we’ve become His living temple; He’s set up His abode in us. This was a mystery in the Old Testament; the prophets and even the angels wondered how it would be possible for God to make His home in men’s hearts. But it was ever God’s desire; He said in Proverbs 8:31, “…my delights were with the sons of men.” Paul, by the Spirit, eventually writes and unveils this mystery as read in our theme scripture. So, when we say, “Christ in you,” we’re looking at the character, the beauty, all of the glory, power, and the righteousness of God encapsulated in a man. Ephesians 3:17 says, “That Christ may dwell in your hearts by faith….” That word “dwell” means “settle”; so, you’re one in whom Christ has settled. He has made His home in your heart by faith; there’s a mingling; a oneness of spirit. His very life, the very quality of His personality and the characteristics of His glory are all in you today. Glory to His Name forever!",
     prayer:
-      "Everything I require for life and godliness has been granted me by God. I refuse to look in the flesh. I don’t struggle, and I don’t fret. Every provision of the Gospel is both legally and vitally my possession NOW! I walk in my inheritance, in the full blessings of the Gospel, in Jesus’ Name. Amen.",
-    date: "Rhapsody Of Realities Thursday 1st",
+      "Blessed Lord, thank you for setting up your abode in the quarters of my heart. You sanctified me, and made me your living tabernacle, with your very life—the very quality of your personality and the characteristics of your glory—resident in, and expressed through me. What a blessed reality; for this, I’m forever grateful.",
+    date: "Rhapsody Of Realities August 6th",
     prayerConclusionLabel: "Prayer / Conclusion",
   },
   translated: false,
@@ -21,8 +21,6 @@ const initialState = {
 export const fetchTranslatedRhaspo = createAsyncThunk(
   "rhapsody/getContent",
   async (data) => {
-    console.log(data);
-    console.log("another");
     return await handleTranslateRhapsody(data);
   }
 );

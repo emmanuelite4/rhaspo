@@ -4,6 +4,7 @@ import { CSS_CONTAINER_STYLE } from "../style/shared";
 import RhapsoHeader from "../app/component/Rhapso/RhapsoHeader";
 import useGetRhaspo from "../hooks/useGetRhaspo";
 import DesktopHeader from "../app/component/HomeHeader/DesktopHeader";
+import RhapsoCategory from "../app/component/Rhapso/RhapsoCategory";
 
 const RhapsoContainer = () => {
   const [content, loading] = useGetRhaspo();
@@ -13,6 +14,7 @@ const RhapsoContainer = () => {
     content;
   return (
     <Holder>
+      {/* <RhapsoCategory /> */}
       <DesktopHeader title="Rhapso Translate" />
       <Body>
         <RhapsoHeader text={title} date={date} loading={loading} />

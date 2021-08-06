@@ -1,12 +1,21 @@
 import { Redirect, Route, Switch } from "react-router-dom";
 import {
+  BOOK_LIST_URL,
+  BOOK_PARAM,
+  BOOK_URL,
   CONDITIONAL_URI,
+  DAILY_VERSE_URI,
   HOME_URL,
   LANDING_URL,
   RHAPSODY_URL,
+  RHAPSO_CATEGORY_URL,
 } from "./constant/navigation";
+import BookContainer from "./container/BookContainer";
+import BookListContainer from "./container/BookListContainer";
+import DailyVerseContainer from "./container/DailyVerseContainer";
 import HomeContainer from "./container/HomeContainer";
 import LandingContainer from "./container/LandingContainer";
+import RhapsoCategoryContainer from "./container/RhapsoCategoryContainer";
 import RhapsoContainer from "./container/RhapsoContainer";
 
 const mobile = window.matchMedia("(max-width: 576px)").matches;
@@ -22,6 +31,14 @@ const Routes = () => {
         exact
       />
       <Route path={RHAPSODY_URL} component={RhapsoContainer} exact />
+      <Route
+        path={RHAPSO_CATEGORY_URL}
+        component={RhapsoCategoryContainer}
+        exact
+      />
+      <Route path={DAILY_VERSE_URI} component={DailyVerseContainer} exact />
+      <Route path={BOOK_LIST_URL} component={BookListContainer} exact />
+      <Route path={BOOK_URL + BOOK_PARAM} component={BookContainer} exact />
       <Route path="/" exact>
         {mobile ? (
           <Redirect to={LANDING_URL} />

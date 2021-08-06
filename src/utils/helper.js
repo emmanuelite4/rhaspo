@@ -1,7 +1,4 @@
 const { Translate } = require("@google-cloud/translate").v2;
-const textToSpeech = require("@google-cloud/text-to-speech");
-const fs = require("fs");
-const util = require("util");
 
 const CREDENTIALS = JSON.parse(process.env.REACT_APP_CREDENTIALS);
 
@@ -28,32 +25,54 @@ export const handleTranlateText = async (text, lang) => {
 
     return translations;
   } catch (e) {
+    console.log(e);
     throw new Error(e);
   }
 };
 
-export const handleTextToSpeech = async (text = "Hello world") => {
-  const client = new textToSpeech.TextToSpeechClient(CREDENTIALS);
-  const request = {
-    input: { text: text },
-    // Select the language and SSML voice gender (optional)
-    voice: { languageCode: "en-US", ssmlGender: "NEUTRAL" },
-    // select the type of audio encoding
-    audioConfig: { audioEncoding: "MP3" },
-  };
+console.log(process.env.REACT_APP_BACKEND_URI);
 
-  // Performs the text-to-speech request
-  const [response] = await client.synthesizeSpeech(request);
-  // Write the binary audio content to a local file
-  const writeFile = util.promisify(fs.writeFile);
-  let res = await writeFile("output.mp3", response.audioContent, "binary");
-  logger(res);
+export const handleTextToSpeech = async ({ text, lang }) => {
+  let result = await fetch("https://rhapso.herokuapp.com/text-to-speech", {
+    method: "POST",
+    body: JSON.stringify({ text, lang }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((res) => res.body)
+    .then((response) => {
+      const reader = response.getReader();
+      return new ReadableStream({
+        start(controller) {
+          // The following function handles each data chunk
+          function push() {
+            // "done" is a Boolean and value a "Uint8Array"
+            reader.read().then(({ done, value }) => {
+              // If there is no more data to read
+              if (done) {
+                controller.close();
+                return;
+              }
+              // Get the data and send it to the browser via the controller
+              controller.enqueue(value);
 
-  logger("Audio content written to file: output.mp3");
-  return res;
+              push();
+            });
+          }
+
+          push();
+        },
+      });
+    })
+    .then((stream) => new Response(stream))
+    .then((response) => response.blob())
+    .then((blob) => URL.createObjectURL(blob))
+    .then((url) => url)
+    .catch((err) => console.error(err));
+
+  return result;
 };
-
-// handleTextToSpeech();
 
 export const logger = (param) => {
   if (process.env.NODE_ENV === "development") {

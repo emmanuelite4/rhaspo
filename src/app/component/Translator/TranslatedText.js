@@ -10,23 +10,32 @@ import {
 import { TextNorm } from "../../Text/Text";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import useCopy from "../../../hooks/useCopy";
+import useTextToSpeech from "../../../hooks/useTextToSpeech";
+import IconButton from "../Button/IconButton";
 
 const TranslatedText = () => {
   const [text] = useGetTranlatedText();
 
   const [copy, onCopy] = useCopy();
 
+  const [voice, onGetVoice, onPlayEnd] = useTextToSpeech();
+
   return (
     <Holder>
       <Header>
-        <Volume2 color={COLOR_TEXT_PRIMARY} />
-        <CopyToClipboard text={text} onCopy={onCopy}>
-          {copy ? (
-            <Check color={COLOR_PRIMARY} />
-          ) : (
-            <Copy color={COLOR_TEXT_PRIMARY} />
-          )}
-        </CopyToClipboard>
+        {voice && <VideoWrapper voice={voice} onPlayEnd={onPlayEnd} />}
+        <IconButton onClick={() => onGetVoice(text)}>
+          <Volume2 color={COLOR_TEXT_PRIMARY} />
+        </IconButton>
+        <IconButton>
+          <CopyToClipboard text={text} onCopy={onCopy}>
+            {copy ? (
+              <Check color={COLOR_PRIMARY} />
+            ) : (
+              <Copy color={COLOR_TEXT_PRIMARY} />
+            )}
+          </CopyToClipboard>
+        </IconButton>
       </Header>
       <Textolder>
         <TextNorm>{text}</TextNorm>
@@ -55,3 +64,11 @@ const Textolder = styled.div`
   height: 250px;
   overflow: auto;
 `;
+
+const VideoWrapper = ({ voice, onPlayEnd }) => {
+  return (
+    <video autoPlay controls hidden onEnded={onPlayEnd}>
+      <source src={voice} />
+    </video>
+  );
+};
