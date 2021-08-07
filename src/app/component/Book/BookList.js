@@ -103,5 +103,7 @@ const ItemTextWrap = styled.div`
     width: 100%;
     justify-content: center;
     align-self: flex-end;
+    cursor: pointer;
+    font-size: 20px;
   }
 `;

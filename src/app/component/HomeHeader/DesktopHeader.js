@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { useHistory } from "react-router-dom";
-import { HOME_URL, RHAPSODY_URL } from "../../../constant/navigation";
+import { HOME_URL, RHAPSO_CATEGORY_URL } from "../../../constant/navigation";
 import { COLOR_PRIMARY, COLOR_WHITE } from "../../../constant/styles";
 // import useRpHistory from "../../../hooks/useRpHistory";
 import { TextBig } from "../../Text/Text";
@@ -13,15 +13,15 @@ const DesktopHeader = ({ title }) => {
     <Holder>
       <Logo src="/img/logo.svg" alt="Logo" />
       <TextBig>{title}</TextBig>
-      <Button onClick={() => history.push(RHAPSODY_URL)}>
-        Today's Rhapsody
+      <Button onClick={() => history.push(RHAPSO_CATEGORY_URL)}>
+        Rhapsody
       </Button>
       <Button
         onClick={() => history.push(HOME_URL)}
         bgColor={COLOR_WHITE}
         textColor={COLOR_PRIMARY}
       >
-        Other Translation
+        Other Translations
       </Button>
     </Holder>
   );

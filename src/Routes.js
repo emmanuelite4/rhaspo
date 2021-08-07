@@ -1,5 +1,6 @@
 import { Redirect, Route, Switch } from "react-router-dom";
 import {
+  ADVANCE_TRANSLATE_URL,
   BOOK_LIST_URL,
   BOOK_PARAM,
   BOOK_URL,
@@ -11,6 +12,7 @@ import {
   RHAPSODY_URL,
   RHAPSO_CATEGORY_URL,
 } from "./constant/navigation";
+import AdvanceTranslateContainer from "./container/AdvanceTranslateContainer";
 import BookContainer from "./container/BookContainer";
 import BookListContainer from "./container/BookListContainer";
 import DailyVerseContainer from "./container/DailyVerseContainer";
@@ -42,6 +44,11 @@ const Routes = () => {
       <Route path={BOOK_LIST_URL} component={BookListContainer} exact />
       <Route path={BOOK_URL + BOOK_PARAM} component={BookContainer} exact />
       <Route path={PREACHING_URL} component={PreachingContainer} exact />
+      <Route
+        path={ADVANCE_TRANSLATE_URL}
+        component={AdvanceTranslateContainer}
+        exact
+      />
       <Route path="/" exact>
         {mobile ? (
           <Redirect to={LANDING_URL} />

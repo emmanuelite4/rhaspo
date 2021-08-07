@@ -19,15 +19,11 @@ export default CategoryContainer;
 
 const Holder = styled.div`
   display: flex;
-  height: 100%;
+  flex: 1;
 `;
 
 const ChildrenWrap = styled.div`
   height: 100%;
   flex: 1;
   overflow: auto;
-  padding-bottom: 40px;
-  @media (min-width: 768px) {
-    height: calc(100% - 100px);
-  }
 `;

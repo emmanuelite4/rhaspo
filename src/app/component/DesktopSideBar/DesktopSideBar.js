@@ -51,11 +51,10 @@ const Holder = styled.div`
   width: 320px;
   box-shadow: 3px 0px 10px rgba(0, 0, 0, 0.1);
 
-  height: calc(100% - 100px);
+  height: 100%;
   background-color: var(--color-white);
   z-index: 1;
-  position: sticky;
-  top: 90px;
+  position: relative;
 `;
 
 const CoverPhotoWrap = styled.div`

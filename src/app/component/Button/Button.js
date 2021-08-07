@@ -1,12 +1,22 @@
 import styled from "@emotion/styled";
 import { COLOR_WHITE } from "../../../constant/styles";
 import { TextMid } from "../../Text/Text";
+import Loader from "../Loader/Loader";
 
-const Button = ({ children, bgColor, textColor, iconRight, ...others }) => {
+const Button = ({
+  children,
+  bgColor,
+  textColor,
+  loading,
+  iconRight,
+  loaderColor,
+  ...others
+}) => {
   return (
     <ButtonWrapper bgColor={bgColor} {...others}>
       <TextMid color={textColor || COLOR_WHITE}>{children}</TextMid>
       {iconRight}
+      {loading && <Loader color={loaderColor || COLOR_WHITE} />}
     </ButtonWrapper>
   );
 };

@@ -3,10 +3,10 @@ import styled from "@emotion/styled";
 import { Loader as LoaderIcon } from "react-feather";
 import { COLOR_TEXT_PRIMARY } from "../../../constant/styles";
 
-const Loader = ({ color }) => {
+const Loader = ({ color, size }) => {
   return (
     <Holder>
-      <LoaderIcon size={40} color={color || COLOR_TEXT_PRIMARY} />
+      <LoaderIcon size={size || 40} color={color || COLOR_TEXT_PRIMARY} />
     </Holder>
   );
 };

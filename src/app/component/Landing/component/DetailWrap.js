@@ -14,7 +14,7 @@ const DetailWrap = () => {
   const history = useHistory();
   return (
     <Holder>
-      <TextBig color={COLOR_WHITE}>Welcome To Rhapso Translate</TextBig>;
+      <TextBig color={COLOR_WHITE}>Welcome To Rhapso Translate</TextBig>
       <Button
         bgColor={COLOR_WHITE}
         textColor={COLOR_PRIMARY}
@@ -22,7 +22,6 @@ const DetailWrap = () => {
       >
         Rhapsody Translator
       </Button>
-      <br />
       <Button
         bgColor={COLOR_FADE_WHIHE}
         textColor={COLOR_WHITE}
@@ -46,4 +45,7 @@ const Holder = styled.div`
   padding: 40px 30px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+  & > :nth-child(3) {
+    margin-bottom: 10px;
+  }
 `;

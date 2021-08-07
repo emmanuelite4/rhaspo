@@ -15,3 +15,4 @@ export const BOOK_PARAM = "/:id";
 export const BOOK_LIST_URL = "/books";
 
 export const PREACHING_URL = "/preaching";
+export const ADVANCE_TRANSLATE_URL = "/advan-translate";

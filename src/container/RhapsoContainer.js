@@ -35,8 +35,16 @@ export default RhapsoContainer;
 
 const Holder = styled.div`
   ${CSS_CONTAINER_STYLE};
-  padding: 0px;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
 `;
 
-const Body = styled.div``;
+const Body = styled.div`
+  overflow: auto;
+  flex: 1;
+  & > div {
+    height: 100%;
+  }
+`;

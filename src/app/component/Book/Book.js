@@ -2,19 +2,25 @@ import styled from "@emotion/styled";
 import { Volume2 } from "react-feather";
 import { COLOR_PRIMARY } from "../../../constant/styles";
 import useFetchBook from "../../../hooks/useFetchBook";
+import useGetTextFromStore from "../../../hooks/useGetTextFromStore";
+import useTextToSpeech from "../../../hooks/useTextToSpeech";
 import { TextBig, TextMid, TextSmall } from "../../Text/Text";
 import IconButton from "../Button/IconButton";
 import RhapsoSelectLang from "../Rhapso/RhapsoSelectLang";
 
 const Book = () => {
   const [book, contents] = useFetchBook();
+  const [voice, onGetVoice, onPlayEnd, onSetTextToSpeech] = useTextToSpeech();
   return (
     <Holder>
       <Header>
         <RhapsoSelectLang />
-        <IconButton>
+        <IconButton
+          onClick={() => onSetTextToSpeech(book.name + contents[0].text)}
+        >
           <Volume2 color={COLOR_PRIMARY} />
         </IconButton>
+        {voice && <VideoWrapper voice={voice} onPlayEnd={onPlayEnd} />}
       </Header>
       <TextBig>Book Name: {book.name}</TextBig>
       <TextSmall>By: {book.by}</TextSmall>
@@ -53,3 +59,10 @@ const ItemWrap = styled.div`
     margin-bottom: 10px;
   }
 `;
+const VideoWrapper = ({ voice, onPlayEnd }) => {
+  return (
+    <video autoPlay controls hidden onEnded={onPlayEnd}>
+      <source src={voice} />
+    </video>
+  );
+};

@@ -68,7 +68,6 @@ const TranslateInput = () => {
             onClick={() => history.push(HOME_URL + HOME_ROUTE_SPEECH)}
             color={COLOR_PRIMARY}
           />
-          <Volume2 color={COLOR_PRIMARY} />
           <Button type="submit">Translate</Button>
         </ButtonHolder>
       </form>

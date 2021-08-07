@@ -11,7 +11,7 @@ const initialState = {
     prayer:
       "Blessed Lord, thank you for setting up your abode in the quarters of my heart. You sanctified me, and made me your living tabernacle, with your very life—the very quality of your personality and the characteristics of your glory—resident in, and expressed through me. What a blessed reality; for this, I’m forever grateful.",
     date: "Rhapsody Of Realities August 6th",
-    prayerConclusionLabel: "Prayer / Conclusion",
+    prayerConclusionLabel: "Prayer",
   },
   translated: false,
   loading: false,

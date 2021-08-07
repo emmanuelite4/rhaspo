@@ -14,10 +14,13 @@ const useTextToSpeech = () => {
   const onGetVoice = async (text) => {
     dispatch(fetchAudioURi({ text, lang }));
   };
+  const onSetTextToSpeech = (text) => {
+    dispatch(fetchAudioURi({ text, lang }));
+  };
   const onPlayEnd = () => {
     dispatch(resetAudioURi());
   };
-  return [voice, onGetVoice, onPlayEnd];
+  return [voice, onGetVoice, onPlayEnd, onSetTextToSpeech];
 };
 
 export default useTextToSpeech;
