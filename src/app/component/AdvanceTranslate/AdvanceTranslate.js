@@ -6,7 +6,7 @@ import { Book, Copy } from "react-feather";
 import { COLOR_SECONDARY, COLOR_WHITE } from "../../../constant/styles";
 import useAdvanTranslate from "../../../hooks/useAdvanTranslate";
 import useGetAdvanTranslatedText from "../../../hooks/useGetAdvanTranslatedText";
-import useGetDocxText from "../../../hooks/useGetDocxText";
+// import useGetDocxText from "../../../hooks/useGetDocxText";
 import {
   CSS_CONTAINER_BORDER,
   CSS_CONTAINER_BORDER_RADIUS,
@@ -18,11 +18,11 @@ import Button from "../Button/Button";
 const AdvanceTranslate = () => {
   const [text, loading, onChange, onSubmit] = useAdvanTranslate();
   const [translated] = useGetAdvanTranslatedText();
-  const [onLoadDocx] = useGetDocxText();
+  //   const [onLoadDocx] = useGetDocxText();
   const [copied, setCopied] = useState(false);
   return (
     <Holder>
-      <TextMid>Translate Large Text/File</TextMid>
+      <TextMid>Translate Manuscript</TextMid>
       <CategoryWrap>
         <ItemWrapper>
           <ItemLogoWrap>
@@ -31,7 +31,12 @@ const AdvanceTranslate = () => {
           <TextSmall>Type or Paste</TextSmall>
         </ItemWrapper>
         <ItemWrapper>
-          <input type="file" onChange={onLoadDocx} id="docx-upload" hidden />
+          {/* <input
+            type="file"
+            onChange={(e) => onUpload(e)}
+            id="docx-upload"
+            hidden
+          /> */}
           <label htmlFor="docx-upload">
             <ItemLogoWrap>
               <Book color={COLOR_WHITE} size={30} />

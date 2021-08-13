@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import { useEffect } from "react";
-import "react-html5-camera-photo/build/css/index.css";
 import { useHistory } from "react-router-dom";
 import { HOME_URL } from "../../../constant/navigation";
 import { CSS_CONTAINER_STYLE } from "../../../style/shared";

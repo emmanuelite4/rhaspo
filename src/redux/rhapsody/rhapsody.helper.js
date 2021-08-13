@@ -14,14 +14,6 @@ export const handleTranslateRhapsody = async (data) => {
   );
   const dateTranslated = await handleTranlateText(date, lang);
 
-  console.log({
-    title: titleTranslated,
-    bibleVerse: bibleVerseTranslated,
-    message: messageTranslated,
-    prayer: prayerTranslated,
-    prayerConclusionLabel: prayerConclusionLabelTranlated,
-    date: dateTranslated,
-  });
   return {
     title: titleTranslated,
     bibleVerse: bibleVerseTranslated,

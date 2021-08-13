@@ -6,7 +6,7 @@ const SearchInput = ({ value, onChange }) => {
   return (
     <Holder>
       <Search color={COLOR_TEXT_PRIMARY} />
-      <Input onChange={onChange} value={value} />
+      <Input onChange={onChange} value={value} placeholder="Search here..." />
     </Holder>
   );
 };

@@ -20,6 +20,14 @@ const useAdvanTranslate = () => {
     dispatch(setLargeText(value));
   };
 
+  // const onUpload = ({ target }) => {
+  //   console.log(target.files[0]);
+
+  //   getText(target.files[0].filename).then(function (data) {
+  //     console.log(data);
+  //   });
+  // };
+
   const onSubmit = (e) => {
     e.preventDefault();
     dispatch(

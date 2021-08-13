@@ -6,11 +6,13 @@ import {
   setTranslatedLanguageFrom,
   setTranslatedLanguageTo,
 } from "../redux/language/language.slice";
+import { fetchTranslatedPreaching } from "../redux/preaching/preaching.slice";
 import { fetchTranslatedRhaspo } from "../redux/rhapsody/rhapsody.slice";
 import { fetchTranslatedVerse } from "../redux/verse/verse.slice";
 import useDailyVerse from "./useDailyVerse";
 import useFetchBook from "./useFetchBook";
 import useFetchBookList from "./useFetchBookList";
+import useGetPreachingText from "./useGetPreachingText";
 
 function escapeRegex(text) {
   return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
@@ -34,17 +36,17 @@ const useLanguageSearch = () => {
   };
   const [books] = useFetchBookList();
   const [book, contents] = useFetchBook();
+  const [preaching] = useGetPreachingText();
   let bookObj = { books, book, contents };
   const onSelect = (lang, type) => {
     if (type === "To") {
-      console.log(lang);
       dispatch(setTranslatedLanguageTo(lang));
-      console.log("pls dispatch");
       dispatch(fetchTranslatedRhaspo({ content, lang }));
       dispatch(fetchTranslatedVerse({ dailyVerse, lang }));
-      console.log(bookObj);
+
       dispatch(fetchTranslatedBook({ bookObj, lang }));
-      console.log("hi");
+
+      dispatch(fetchTranslatedPreaching({ text: preaching, lang }));
     } else {
       dispatch(setTranslatedLanguageFrom(lang));
     }
