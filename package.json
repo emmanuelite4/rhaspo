@@ -3,22 +3,36 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.4.1",
+    "@emotion/styled": "^11.3.0",
+    "@google-cloud/translate": "^6.2.7",
     "@reduxjs/toolkit": "^1.5.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.21.1",
     "docxtemplater": "^3.22.5",
+    "feather-icons": "^4.28.0",
+    "firebase": "^8.9.1",
+    "google-tts-api": "^2.0.2",
     "jszip-utils": "^0.1.0",
+    "microsoft-cognitiveservices-speech-sdk": "^1.18.1",
     "paystack-api": "^2.0.6",
     "react": "^17.0.2",
     "react-copy-to-clipboard": "^5.0.3",
     "react-dom": "^17.0.2",
+    "react-feather": "^2.0.9",
     "react-file-download": "^0.3.5",
+    "react-image-file-resizer": "^0.4.7",
     "react-paystack": "^3.0.4",
     "react-redux": "^7.2.3",
+    "react-responsive": "^9.0.0-beta.3",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.3"
+    "react-scripts": "4.0.3",
+    "react-speech-recognition": "^3.8.2",
+    "remove": "^0.1.5",
+    "tesseract.js": "^2.1.5",
+    "web-speech-cognitive-services": "^7.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -40,20 +54,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@emotion/react": "^11.4.0",
-    "@emotion/styled": "^11.3.0",
-    "@google-cloud/translate": "^6.2.6",
-    "feather-icons": "^4.28.0",
-    "firebase": "^8.9.0",
-    "google-tts-api": "^2.0.2",
-    "microsoft-cognitiveservices-speech-sdk": "^1.18.0",
-    "react-feather": "^2.0.9",
-    "react-image-file-resizer": "^0.4.7",
-    "react-responsive": "^9.0.0-beta.3",
-    "react-speech-recognition": "^3.8.2",
-    "tesseract.js": "2.1.1",
-    "web-speech-cognitive-services": "^7.1.1"
   }
 }

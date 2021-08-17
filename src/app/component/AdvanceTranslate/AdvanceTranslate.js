@@ -30,20 +30,6 @@ const AdvanceTranslate = () => {
           </ItemLogoWrap>
           <TextSmall>Type or Paste</TextSmall>
         </ItemWrapper>
-        <ItemWrapper>
-          {/* <input
-            type="file"
-            onChange={(e) => onUpload(e)}
-            id="docx-upload"
-            hidden
-          /> */}
-          <label htmlFor="docx-upload">
-            <ItemLogoWrap>
-              <Book color={COLOR_WHITE} size={30} />
-            </ItemLogoWrap>
-            <TextSmall>Docx</TextSmall>
-          </label>
-        </ItemWrapper>
       </CategoryWrap>
       <form onSubmit={onSubmit}>
         <TextArea

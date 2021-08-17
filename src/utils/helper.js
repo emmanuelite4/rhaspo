@@ -33,6 +33,7 @@ export const handleTranlateText = async (text, lang) => {
 console.log(process.env.REACT_APP_BACKEND_URI);
 
 export const handleTextToSpeech = async ({ text, lang }) => {
+  console.log(text);
   let result = await fetch("https://rhapso.herokuapp.com/text-to-speech", {
     method: "POST",
     body: JSON.stringify({ text, lang }),

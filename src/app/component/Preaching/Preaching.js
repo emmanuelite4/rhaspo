@@ -16,6 +16,7 @@ import {
   COLOR_WHITE,
 } from "../../../constant/styles";
 import useTextToSpeech from "../../../hooks/useTextToSpeech";
+import Loader from "../Loader/Loader";
 
 const Preaching = () => {
   const [loading, text] = useGetPreachingText();
@@ -31,10 +32,19 @@ const Preaching = () => {
           pattern="(?:https?:\/\/)?(?:www\.)?youtu(?:\.be\/|be.com\/\S*(?:watch|embed)(?:(?:(?=\/[^&\s\?]+(?!\S))\/)|(?:\S*v=|v\/)))([^&\s\?]+)"
         /> */}
       {voice && <VideoWrapper voice={voice} onPlayEnd={onPlayEnd} />}
-      <input type="file" id="audio-text" hidden onChange={onSendAudio} />
-      <Label htmlFor="audio-text">
-        <span>Upload Message</span>
-      </Label>
+      <input
+        type="file"
+        id="audio-text"
+        accept=" audio/wav"
+        hidden
+        onChange={onSendAudio}
+      />
+      <LabelLoaderHolder>
+        <Label htmlFor="audio-text">
+          <span>Upload Message</span>
+        </Label>
+        {loading && <Loader />}
+      </LabelLoaderHolder>
       {/* </Form> */}
       <Divider />
       <SettingWrap>
@@ -96,6 +106,12 @@ const Divider = styled.div`
 const SettingWrap = styled.div`
   display: flex;
   align-items: center;
+`;
+
+const LabelLoaderHolder = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 const Label = styled.label`
